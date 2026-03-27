@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fdfcfa;
+  --foreground: #3d3530;
+  --accent: #7c6fbd;
+  --accent-soft: #b8b0da;
+  --accent-bg: #f3f0ff;
+  --warm: #e8a87c;
+  --warm-bg: #fff5ee;
+  --rose: #d4849a;
+  --rose-bg: #fdf0f4;
+  --sage: #8cb4a0;
+  --sage-bg: #eef7f2;
+  --sky: #7db5d4;
+  --sky-bg: #eef6fb;
+  --muted: #9a918a;
+  --surface: #ffffff;
+  --border: #ede8e3;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-bg: var(--accent-bg);
+  --color-warm: var(--warm);
+  --color-warm-bg: var(--warm-bg);
+  --color-rose: var(--rose);
+  --color-rose-bg: var(--rose-bg);
+  --color-sage: var(--sage);
+  --color-sage-bg: var(--sage-bg);
+  --color-sky: var(--sky);
+  --color-sky-bg: var(--sky-bg);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --font-zen: var(--font-zen-maru);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+html {
+  scroll-behavior: smooth;
+}
