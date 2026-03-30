@@ -205,7 +205,9 @@ export default function Home() {
             配信のこと、届け方のこと、なんでも大丈夫です
           </p>
           <a
-            href="#"
+            href="https://x.com/LatentB3"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 mt-8 px-7 py-3.5 bg-foreground text-background text-sm font-medium rounded-full hover:opacity-90 transition-opacity duration-300"
           >
             <svg
