@@ -24,12 +24,6 @@ export default function Home() {
             <br />
             その部分を、あなたの代わりに引き受けます。
           </p>
-          <a
-            href="#contact"
-            className="inline-block mt-10 px-7 py-3.5 bg-accent text-white text-sm rounded-full hover:opacity-90 transition-opacity duration-300"
-          >
-            ちょっと話してみる
-          </a>
         </div>
       </section>
 
@@ -195,14 +189,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section id="contact" className="py-24 px-6 bg-warm-bg/30">
+      {/* Follow */}
+      <section className="py-24 px-6 bg-warm-bg/30">
         <div className="max-w-md mx-auto text-center">
           <h2 className="text-xl sm:text-2xl font-bold">
-            まずは気軽にどうぞ
+            活動の様子はXで発信しています
           </h2>
           <p className="mt-3 text-sm text-muted">
-            配信のこと、届け方のこと、なんでも大丈夫です
+            現在、体制を整えている段階です
           </p>
           <a
             href="https://x.com/LatentB3"
@@ -218,11 +212,8 @@ export default function Home() {
             >
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
             </svg>
-            X で話してみる
+            X をフォローする
           </a>
-          <p className="mt-5 text-xs text-muted">
-            DMでお気軽に。売り込みはしません
-          </p>
         </div>
       </section>
 
