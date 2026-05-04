@@ -4,7 +4,6 @@ import { asset } from "../../../../lib/asset";
 
 export default function FanSiteHub() {
   const c = kotaruru0603Case;
-  const featuresPath = `/works/${c.slug}/fan-site/features`;
 
   return (
     <div className="mx-auto max-w-4xl px-6 py-16">
@@ -26,7 +25,7 @@ export default function FanSiteHub() {
         <p className="mt-6 text-sm leading-loose">
           視聴者向けの本体、配信者向けの管理画面、世界観を支える素材。
           <br />
-          ファンサイトを成立させるために用意した 3 つの公開物です。
+          ファンサイトを成立させるために用意した 3 つの公開物です。各カードからは説明ページへ進めます。
         </p>
       </header>
 
@@ -40,18 +39,12 @@ export default function FanSiteHub() {
           </div>
 
           <ul className="mt-5 grid gap-4 sm:grid-cols-2">
-            {group.links.map((link) => {
-              const isMainSite = link.slug === "fan-site";
-              return (
-                <li key={link.slug}>
-                  <div className="group block overflow-hidden rounded-3xl border border-border bg-surface hover:border-accent transition-colors">
-                    <a
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block"
-                    >
-                      {link.screenshotPath ? (
+            {group.links.map((link) => (
+              <li key={link.slug}>
+                <div className="group block overflow-hidden rounded-3xl border border-border bg-surface hover:border-accent transition-colors">
+                  {link.detailPath ? (
+                    <Link href={link.detailPath} className="block">
+                      {link.screenshotPath && (
                         <div className="overflow-hidden bg-warm-bg/30">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
@@ -60,47 +53,56 @@ export default function FanSiteHub() {
                             className="w-full h-auto block group-hover:opacity-95 transition-opacity"
                           />
                         </div>
-                      ) : (
-                        <div className="aspect-[16/10] bg-warm-bg/30" />
                       )}
-                    </a>
-                    <div className="p-5">
-                      <div className="flex items-baseline justify-between gap-2">
-                        <h3 className="text-sm font-bold leading-tight">
-                          {link.title}
-                        </h3>
-                        {link.authNote && (
-                          <span className="rounded-full bg-warm-bg px-2 py-0.5 text-[10px] text-warm font-bold flex-shrink-0">
-                            {link.authNote}
-                          </span>
-                        )}
+                    </Link>
+                  ) : (
+                    link.screenshotPath && (
+                      <div className="overflow-hidden bg-warm-bg/30">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={asset(link.screenshotPath)}
+                          alt={`${link.title} のスクリーンショット`}
+                          className="w-full h-auto block"
+                        />
                       </div>
-                      <p className="mt-3 text-xs text-muted leading-relaxed">
-                        {link.description}
-                      </p>
-                      <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
-                        {isMainSite && (
-                          <Link
-                            href={featuresPath}
-                            className="text-[11px] text-accent font-bold hover:underline"
-                          >
-                            機能の詳細を見る →
-                          </Link>
-                        )}
-                        <a
-                          href={link.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[11px] text-accent break-all hover:underline"
+                    )
+                  )}
+                  <div className="p-5">
+                    <div className="flex items-baseline justify-between gap-2">
+                      <h3 className="text-sm font-bold leading-tight">
+                        {link.title}
+                      </h3>
+                      {link.authNote && (
+                        <span className="rounded-full bg-warm-bg px-2 py-0.5 text-[10px] text-warm font-bold flex-shrink-0">
+                          {link.authNote}
+                        </span>
+                      )}
+                    </div>
+                    <p className="mt-3 text-xs text-muted leading-relaxed">
+                      {link.description}
+                    </p>
+                    <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
+                      {link.detailPath && (
+                        <Link
+                          href={link.detailPath}
+                          className="text-xs text-accent font-bold hover:underline"
                         >
-                          {link.url} ↗
-                        </a>
-                      </div>
+                          紹介を見る →
+                        </Link>
+                      )}
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[11px] text-muted hover:text-accent break-all"
+                      >
+                        実物を開く ↗
+                      </a>
                     </div>
                   </div>
-                </li>
-              );
-            })}
+                </div>
+              </li>
+            ))}
           </ul>
         </section>
       ))}

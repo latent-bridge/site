@@ -1,54 +1,22 @@
-import Link from "next/link";
 import { kotaruru0603Case } from "../../../../../data/works/kotaruru0603";
 import { asset } from "../../../../../lib/asset";
+import { SitePageShell } from "../../../../../components/works/SitePageShell";
 
-export default function FanSiteShowcase() {
+export default function FanSiteMain() {
   const c = kotaruru0603Case;
   const f = c.fanSite;
 
   return (
-    <div className="mx-auto max-w-4xl px-6 py-16">
-      <nav className="text-xs text-muted">
-        <Link href="/works" className="hover:text-accent">
-          実績
-        </Link>
-        <span className="mx-2">/</span>
-        <Link href={`/works/${c.slug}`} className="hover:text-accent">
-          {c.streamerName}
-        </Link>
-        <span className="mx-2">/</span>
-        <Link
-          href={`/works/${c.slug}/fan-site`}
-          className="hover:text-accent"
-        >
-          ファンサイト
-        </Link>
-        <span className="mx-2">/</span>
-        <span>ファンサイト本体の機能</span>
-      </nav>
-
-      <header className="mt-6">
-        <p className="text-xs tracking-wide text-accent mb-3">Features</p>
-        <h1 className="text-2xl sm:text-3xl font-bold">ファンサイト本体の機能</h1>
-        <p className="mt-6 text-sm leading-loose">
-          視聴者の「いつものたまり場」を、配信者ごとに最適化して用意します。
-          <br />
-          応援動線を内側に持ち、手数料を抑えながら配信者の収益に繋げる構造です。
-        </p>
-
-        <a
-          href={f.liveUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-6 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-xs font-bold text-white hover:opacity-90 transition-opacity"
-        >
-          実際のサイトを開く ↗
-        </a>
-        <p className="mt-3 text-[11px] text-muted">
-          {f.liveUrl} ・ デザイン: {f.designName}
-        </p>
-      </header>
-
+    <SitePageShell
+      caseSlug={c.slug}
+      streamerName={c.streamerName}
+      groupTitle="ファンサイト本体"
+      title="ファンサイト本体"
+      category="Features"
+      tagline="視聴者の「いつものたまり場」を、配信者ごとに最適化して用意する場所。応援動線を内側に持ち、手数料を抑えながら配信者の収益に繋げる構造です。"
+      liveUrl={f.liveUrl}
+      liveLabel="ファンサイトを開く"
+    >
       {/* Why */}
       <section className="mt-16 rounded-3xl bg-warm-bg/40 p-8">
         <h2 className="text-base font-bold">なぜファンサイトを作るのか</h2>
@@ -86,7 +54,6 @@ export default function FanSiteShowcase() {
             return (
               <li key={feat.slug}>
                 <div className="grid gap-6 md:grid-cols-[1.1fr,1fr] md:items-start">
-                  {/* Screenshot column */}
                   <div className="md:order-1">
                     {feat.screenshotPath ? (
                       <a
@@ -120,7 +87,6 @@ export default function FanSiteShowcase() {
                     )}
                   </div>
 
-                  {/* Text column */}
                   <div className="md:order-2">
                     <div className="flex flex-wrap items-baseline gap-3">
                       <span className="text-xs text-accent font-bold">
@@ -182,16 +148,6 @@ export default function FanSiteShowcase() {
           </p>
         </section>
       )}
-
-      {/* Back */}
-      <nav className="mt-16">
-        <Link
-          href={`/works/${c.slug}/fan-site`}
-          className="inline-flex items-center gap-2 text-xs text-muted hover:text-accent"
-        >
-          ← ファンサイトの一覧に戻る
-        </Link>
-      </nav>
-    </div>
+    </SitePageShell>
   );
 }

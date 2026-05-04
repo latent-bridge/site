@@ -73,6 +73,7 @@ export type SiteLink = {
   title: string;
   description: string;
   url: string;
+  detailPath?: string;
   screenshotPath?: string;
   authNote?: string;
 };
