@@ -6,7 +6,7 @@ export default function FanSiteShowcase() {
   const f = c.fanSite;
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-16">
+    <div className="mx-auto max-w-4xl px-6 py-16">
       <nav className="text-xs text-muted">
         <Link href="/works" className="hover:text-accent">
           実績
@@ -72,44 +72,90 @@ export default function FanSiteShowcase() {
           中の機能は積み重ねた共通土台を使い回しています。
         </p>
 
-        <ol className="mt-8 space-y-6">
-          {f.features.map((feat, i) => (
-            <li
-              key={feat.slug}
-              className="rounded-3xl border border-border bg-surface p-6"
-            >
-              <div className="flex items-baseline justify-between gap-3">
-                <div className="flex items-baseline gap-3">
-                  <span className="text-xs text-accent font-bold">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="text-base font-bold">{feat.title}</h3>
+        <ol className="mt-10 space-y-12">
+          {f.features.map((feat, i) => {
+            const isUnimplemented = !feat.screenshotPath;
+            return (
+              <li key={feat.slug}>
+                <div className="grid gap-6 md:grid-cols-[1.1fr,1fr] md:items-start">
+                  {/* Screenshot column */}
+                  <div className="md:order-1">
+                    {feat.screenshotPath ? (
+                      <a
+                        href={
+                          feat.livePath
+                            ? `${f.liveUrl.replace(/\/$/, "")}${feat.livePath}`
+                            : f.liveUrl
+                        }
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block overflow-hidden rounded-2xl border border-border shadow-sm hover:shadow-md transition-shadow"
+                      >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={feat.screenshotPath}
+                          alt={`${feat.title} のスクリーンショット`}
+                          className="w-full h-auto block"
+                        />
+                      </a>
+                    ) : (
+                      <div className="flex items-center justify-center rounded-2xl border-2 border-dashed border-border bg-warm-bg/30 p-12 text-center min-h-[260px]">
+                        <div>
+                          <p className="text-xs text-muted font-bold tracking-wide">
+                            COMING SOON
+                          </p>
+                          <p className="mt-2 text-xs text-muted">
+                            この機能はまだ実装されていません
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Text column */}
+                  <div className="md:order-2">
+                    <div className="flex items-baseline gap-3">
+                      <span className="text-xs text-accent font-bold">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <h3 className="text-lg font-bold">{feat.title}</h3>
+                      {isUnimplemented && (
+                        <span className="rounded-full bg-warm-bg px-2 py-0.5 text-[10px] text-warm font-bold">
+                          予定
+                        </span>
+                      )}
+                    </div>
+                    <p className="mt-3 text-sm font-bold leading-relaxed text-foreground/80">
+                      {feat.summary}
+                    </p>
+                    <p className="mt-3 text-sm leading-loose">
+                      {feat.description}
+                    </p>
+                    {feat.designIntent && (
+                      <div className="mt-4 rounded-2xl bg-accent-bg/30 p-4">
+                        <p className="text-[11px] text-accent font-bold">
+                          設計意図
+                        </p>
+                        <p className="mt-2 text-xs leading-relaxed">
+                          {feat.designIntent}
+                        </p>
+                      </div>
+                    )}
+                    {feat.livePath && feat.screenshotPath && (
+                      <a
+                        href={`${f.liveUrl.replace(/\/$/, "")}${feat.livePath}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-4 inline-flex text-[11px] text-accent"
+                      >
+                        実際の画面を開く ↗
+                      </a>
+                    )}
+                  </div>
                 </div>
-                {feat.livePath && (
-                  <a
-                    href={`${f.liveUrl.replace(/\/$/, "")}${feat.livePath}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[11px] text-accent flex-shrink-0"
-                  >
-                    実際の画面 ↗
-                  </a>
-                )}
-              </div>
-              <p className="mt-3 text-sm font-bold leading-relaxed text-foreground/80">
-                {feat.summary}
-              </p>
-              <p className="mt-3 text-sm leading-loose">{feat.description}</p>
-              {feat.designIntent && (
-                <div className="mt-4 rounded-2xl bg-accent-bg/30 p-4">
-                  <p className="text-[11px] text-accent font-bold">設計意図</p>
-                  <p className="mt-2 text-xs leading-relaxed">
-                    {feat.designIntent}
-                  </p>
-                </div>
-              )}
-            </li>
-          ))}
+              </li>
+            );
+          })}
         </ol>
       </section>
 

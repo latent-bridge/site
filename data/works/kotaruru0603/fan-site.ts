@@ -15,6 +15,7 @@ export const fanSite: FanSiteInfo = {
       designIntent:
         "サイトに来た人が「次に何が起きるか」を最短で掴めるよう、ライブ予定とスケジュールを上部に固定。固定客の習慣形成に効きます。",
       livePath: "/",
+      screenshotPath: "/works/kotaruru0603/fan-site/home.png",
     },
     {
       slug: "stream",
@@ -25,6 +26,7 @@ export const fanSite: FanSiteInfo = {
       designIntent:
         "「ライブを見る」と「ファン同士で盛り上がる」を1画面に統合。YouTube だけでは流れていく会話を、配信者ごとの場所に蓄積させる狙い。",
       livePath: "/stream",
+      screenshotPath: "/works/kotaruru0603/fan-site/stream.png",
     },
     {
       slug: "archive",
@@ -35,6 +37,7 @@ export const fanSite: FanSiteInfo = {
       designIntent:
         "通常の YouTube チャンネルでは埋もれる過去配信を、世界観に沿った棚として再編成。新規視聴者の入り口として機能させる。",
       livePath: "/archive",
+      screenshotPath: "/works/kotaruru0603/fan-site/archive.png",
     },
     {
       slug: "schedule",
@@ -45,6 +48,7 @@ export const fanSite: FanSiteInfo = {
       designIntent:
         "「次にいつ来れば配信に立ち会えるか」を視聴者に明示する。固定客のリピート動機を作る最重要動線。",
       livePath: "/schedule",
+      screenshotPath: "/works/kotaruru0603/fan-site/schedule.png",
     },
     {
       slug: "chat",
@@ -55,16 +59,16 @@ export const fanSite: FanSiteInfo = {
       designIntent:
         "「配信者と視聴者」「視聴者同士」の関係を、配信時間外にも持続させる。ファンコミュニティの厚みを作る装置。",
       livePath: "/chat",
+      screenshotPath: "/works/kotaruru0603/fan-site/chat.png",
     },
     {
       slug: "member",
       title: "MEMBER (支援)",
-      summary: "Stripe 直決済で手数料を最小化した支援動線",
+      summary: "Stripe 直決済で手数料を最小化した支援動線 (未実装)",
       description:
         "アプリ経由のスーパーチャットだと Apple/Google 30% + YouTube 手数料で実質半分しか配信者に届かない。ファンサイト経由なら決済手数料 3% 程度に抑え、残りを配信者と運営の分配原資にできる。",
       designIntent:
-        "「視聴者の応援が届く割合を増やす」が一次目的。料率の透明性を持たせ、初期は収益分配 (固定費 0)、ブレイクイーブン後にプラットフォーム手数料へ移行する想定。",
-      livePath: "/",
+        "「視聴者の応援が届く割合を増やす」が一次目的。料率の透明性を持たせ、初期は収益分配 (固定費 0)、ブレイクイーブン後にプラットフォーム手数料へ移行する想定。本機能は ruruさんの 200人突破タイミングに合わせて実装予定。",
     },
   ],
 };
