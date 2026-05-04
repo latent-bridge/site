@@ -44,7 +44,14 @@ export default async function ClipDetail({
           {kotaruru0603Case.streamerName}
         </Link>
         <span className="mx-2">/</span>
-        <span>切り抜き {clip.sequenceNo}本目</span>
+        <Link
+          href={`/works/${kotaruru0603Case.slug}/clips`}
+          className="hover:text-accent"
+        >
+          切り抜き
+        </Link>
+        <span className="mx-2">/</span>
+        <span>{clip.sequenceNo}本目</span>
       </nav>
 
       {/* Header */}

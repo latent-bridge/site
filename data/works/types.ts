@@ -50,6 +50,23 @@ export type Clip = {
   learnings: string[];
 };
 
+export type FanSiteFeature = {
+  slug: string;
+  title: string;
+  summary: string;
+  description: string;
+  designIntent?: string;
+  livePath?: string;
+  screenshotPath?: string;
+};
+
+export type FanSiteInfo = {
+  liveUrl: string;
+  designName: string;
+  designStory?: string;
+  features: FanSiteFeature[];
+};
+
 export type CaseSummary = {
   slug: string;
   streamerName: string;
@@ -59,4 +76,5 @@ export type CaseSummary = {
   status: string;
   description: string;
   clips: Clip[];
+  fanSite: FanSiteInfo;
 };

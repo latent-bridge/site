@@ -3,6 +3,11 @@ import { kotaruru0603Case } from "../../../data/works/kotaruru0603";
 
 export default function KotaruRu0603Case() {
   const c = kotaruru0603Case;
+  const totalViews = c.clips.reduce(
+    (acc, clip) => acc + (clip.metrics.views ?? 0),
+    0,
+  );
+
   return (
     <div className="mx-auto max-w-3xl px-6 py-16">
       <header>
@@ -20,61 +25,61 @@ export default function KotaruRu0603Case() {
             <dd className="mt-1 font-bold">{c.status}</dd>
           </div>
           <div className="rounded-xl bg-accent-bg/40 p-3">
-            <dt className="text-muted">クリップ</dt>
-            <dd className="mt-1 font-bold">{c.clips.length} 本</dd>
+            <dt className="text-muted">納品物</dt>
+            <dd className="mt-1 font-bold">2 領域</dd>
           </div>
         </dl>
       </header>
 
       <section className="mt-16">
-        <div className="flex items-baseline justify-between">
-          <h2 className="text-lg font-bold">切り抜き制作</h2>
-          <p className="text-xs text-muted">
-            時系列 ({c.clips.length} 本)
-          </p>
+        <h2 className="text-xs tracking-wide text-muted mb-4">Deliverables</h2>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {/* 切り抜き制作 */}
+          <Link
+            href={`/works/${c.slug}/clips`}
+            className="group block rounded-3xl border border-border bg-surface p-6 hover:border-accent hover:bg-accent-bg/20 transition-colors"
+          >
+            <div className="flex items-baseline justify-between">
+              <p className="text-2xl">✂️</p>
+              <span className="text-[11px] text-muted">
+                {c.clips.length} 本
+              </span>
+            </div>
+            <h3 className="mt-4 text-base font-bold">切り抜き制作</h3>
+            <p className="mt-2 text-xs text-muted leading-relaxed">
+              元配信からどこをどう切り取り、テロップをどう設計したか。1本ずつ詳細に公開しています。
+            </p>
+            <p className="mt-4 text-[11px] text-muted">
+              累計再生 {totalViews.toLocaleString("ja-JP")} ・ 最新 {c.clips[c.clips.length - 1]?.postedAt}
+            </p>
+            <p className="mt-3 text-xs text-accent group-hover:underline">
+              詳細を見る →
+            </p>
+          </Link>
+
+          {/* ファンサイト構築 */}
+          <Link
+            href={`/works/${c.slug}/fan-site`}
+            className="group block rounded-3xl border border-border bg-surface p-6 hover:border-accent hover:bg-accent-bg/20 transition-colors"
+          >
+            <div className="flex items-baseline justify-between">
+              <p className="text-2xl">🏠</p>
+              <span className="text-[11px] text-muted">
+                {c.fanSite.features.length} 機能
+              </span>
+            </div>
+            <h3 className="mt-4 text-base font-bold">ファンサイト構築</h3>
+            <p className="mt-2 text-xs text-muted leading-relaxed">
+              視聴者の「いつものたまり場」を配信者ごとに最適化して用意。応援動線を内側に持ちます。
+            </p>
+            <p className="mt-4 text-[11px] text-muted">
+              {c.fanSite.designName} ・ 公開中
+            </p>
+            <p className="mt-3 text-xs text-accent group-hover:underline">
+              機能を見る →
+            </p>
+          </Link>
         </div>
-        <p className="mt-3 text-xs text-muted leading-relaxed">
-          1本ずつ、元配信のどこをどう切り取り、テロップをどう設計したかを公開しています。
-        </p>
-
-        <ol className="mt-8 space-y-4">
-          {c.clips.map((clip) => (
-            <li key={clip.slug}>
-              <Link
-                href={`/works/${c.slug}/clips/${clip.slug}`}
-                className="block rounded-3xl border border-border bg-surface p-6 hover:border-accent hover:bg-accent-bg/20 transition-colors"
-              >
-                <div className="flex items-baseline gap-3">
-                  <span className="text-xs text-accent font-bold">
-                    {String(clip.sequenceNo).padStart(2, "0")}
-                  </span>
-                  <p className="text-base font-bold leading-tight">
-                    {clip.title}
-                  </p>
-                </div>
-                <p className="mt-2 text-[11px] text-muted">
-                  {clip.postedAt} ・ {clip.source.cutDurationSec ?? "—"}秒 ・ 再生 {clip.metrics.views?.toLocaleString("ja-JP") ?? "—"}
-                </p>
-              </Link>
-            </li>
-          ))}
-        </ol>
-      </section>
-
-      <section className="mt-16 rounded-3xl bg-warm-bg/40 p-6">
-        <h2 className="text-base font-bold">ファンサイト</h2>
-        <p className="mt-3 text-xs leading-relaxed">
-          切り抜き制作の延長で、応援動線を内側に持つファンサイトを構築しました。
-          MOCHI HOUSE / もちもち デザインで実装中。
-        </p>
-        <a
-          href={c.domain}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 inline-flex items-center gap-2 text-xs text-accent font-bold"
-        >
-          {c.domain} ↗
-        </a>
       </section>
     </div>
   );
