@@ -77,6 +77,15 @@ export default function ClipsIndex() {
           ))}
         </ol>
       </section>
+
+      <nav className="mt-16">
+        <Link
+          href={`/works/${c.slug}`}
+          className="inline-flex items-center gap-2 text-xs text-muted hover:text-accent"
+        >
+          ← {c.streamerName} のケースに戻る
+        </Link>
+      </nav>
     </div>
   );
 }

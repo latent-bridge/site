@@ -10,7 +10,7 @@ export default function WorksLayout({
       <header className="border-b border-border bg-surface/60 backdrop-blur">
         <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
           <Link href="/" className="text-xs tracking-wide text-accent">
-            ← Latent Bridge
+            Latent Bridge
           </Link>
           <Link href="/works" className="text-xs font-bold">
             実績

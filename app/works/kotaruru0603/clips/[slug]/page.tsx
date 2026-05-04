@@ -176,6 +176,15 @@ export default async function ClipDetail({
       <section className="mt-16">
         <ClipNav prev={prev} next={next} caseSlug={kotaruru0603Case.slug} />
       </section>
+
+      <nav className="mt-12">
+        <Link
+          href={`/works/${kotaruru0603Case.slug}/clips`}
+          className="inline-flex items-center gap-2 text-xs text-muted hover:text-accent"
+        >
+          ← 切り抜き一覧に戻る
+        </Link>
+      </nav>
     </div>
   );
 }

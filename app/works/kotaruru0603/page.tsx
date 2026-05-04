@@ -81,6 +81,15 @@ export default function KotaruRu0603Case() {
           </Link>
         </div>
       </section>
+
+      <nav className="mt-16">
+        <Link
+          href="/works"
+          className="inline-flex items-center gap-2 text-xs text-muted hover:text-accent"
+        >
+          ← 実績一覧に戻る
+        </Link>
+      </nav>
     </div>
   );
 }

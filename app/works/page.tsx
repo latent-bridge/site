@@ -49,6 +49,15 @@ export default function WorksIndex() {
           ))}
         </ul>
       </section>
+
+      <nav className="mt-16">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-xs text-muted hover:text-accent"
+        >
+          ← Latent Bridge トップに戻る
+        </Link>
+      </nav>
     </div>
   );
 }
