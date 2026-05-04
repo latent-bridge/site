@@ -73,7 +73,6 @@ export type SiteLink = {
   title: string;
   description: string;
   url: string;
-  detailPath?: string;
   screenshotPath?: string;
   authNote?: string;
 };
@@ -82,6 +81,7 @@ export type SiteGroup = {
   slug: string;
   title: string;
   description?: string;
+  detailPath: string;
   links: SiteLink[];
 };
 

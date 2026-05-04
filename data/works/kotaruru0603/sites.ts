@@ -1,10 +1,13 @@
 import type { SiteGroup } from "../types";
 
+const CASE_PATH = "/works/kotaruru0603/fan-site";
+
 export const siteGroups: SiteGroup[] = [
   {
     slug: "fan-site",
-    title: "ファンサイト",
+    title: "ファンサイト本体",
     description: "視聴者向けの常設サイト",
+    detailPath: `${CASE_PATH}/features`,
     links: [
       {
         slug: "fan-site",
@@ -12,7 +15,6 @@ export const siteGroups: SiteGroup[] = [
         description:
           "HOME / STREAM / ARCHIVE / SCHEDULE / CHAT / STAMP CARD を備えた視聴者向けファンサイト本体。",
         url: "https://kotaruru0603.latent-bridge.com/",
-        detailPath: "/works/kotaruru0603/fan-site/features",
         screenshotPath: "/works/kotaruru0603/sites/fan-site.png",
       },
     ],
@@ -21,6 +23,7 @@ export const siteGroups: SiteGroup[] = [
     slug: "admin",
     title: "管理画面",
     description: "配信者専用の運営ダッシュボード",
+    detailPath: `${CASE_PATH}/admin`,
     links: [
       {
         slug: "admin",
@@ -28,7 +31,6 @@ export const siteGroups: SiteGroup[] = [
         description:
           "配信者本人がスケジュール・アーカイブメタデータ・チャット運営などを編集する管理画面。視聴者からは見えないクローズドな URL に分離。",
         url: "https://admin.kotaruru0603.latent-bridge.com/",
-        detailPath: "/works/kotaruru0603/fan-site/admin",
         screenshotPath: "/works/kotaruru0603/sites/admin.png",
         authNote: "認証必須 (配信者本人のみ)",
       },
@@ -38,6 +40,7 @@ export const siteGroups: SiteGroup[] = [
     slug: "assets",
     title: "素材",
     description: "ファンサイト全体で使い回す世界観のパーツ",
+    detailPath: `${CASE_PATH}/assets`,
     links: [
       {
         slug: "icons",
@@ -45,7 +48,6 @@ export const siteGroups: SiteGroup[] = [
         description:
           "「はいしん・げーむ・おしゃべり・たべもの・てんき・きもち・ぜんぶ」など、もちもち世界観に合わせて手作りした 72 アイコン。サイト各所のラベル・カードで使用。",
         url: "https://kotaruru0603.latent-bridge.com/icons/",
-        detailPath: "/works/kotaruru0603/fan-site/icons",
         screenshotPath: "/works/kotaruru0603/sites/icons.png",
       },
       {
@@ -54,7 +56,6 @@ export const siteGroups: SiteGroup[] = [
         description:
           "うさぎ・ねこ・くま・ぱんだ・きつね・はむ・ぺんぎんの 7 体のマスコット。チャット参加者・支援tier・通知などに割り当てて使う、世界観の中核キャラクター集。",
         url: "https://kotaruru0603.latent-bridge.com/mascots/",
-        detailPath: "/works/kotaruru0603/fan-site/mascots",
         screenshotPath: "/works/kotaruru0603/sites/mascots.png",
       },
     ],
