@@ -58,6 +58,7 @@ export type FanSiteFeature = {
   designIntent?: string;
   livePath?: string;
   screenshotPath?: string;
+  requestedBy?: string;
 };
 
 export type FanSiteInfo = {

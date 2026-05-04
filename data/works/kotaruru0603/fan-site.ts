@@ -60,6 +60,19 @@ export const fanSite: FanSiteInfo = {
         "「配信者と視聴者」「視聴者同士」の関係を、配信時間外にも持続させる。ファンコミュニティの厚みを作る装置。",
       livePath: "/chat",
       screenshotPath: "/works/kotaruru0603/fan-site/chat.png",
+      requestedBy: "ruru",
+    },
+    {
+      slug: "stamp-card",
+      title: "STAMP CARD",
+      summary: "視聴者と配信者を双方向で繋ぐスタンプカード",
+      description:
+        "視聴者は配信に来るたびにスタンプが貯まり、配信者側からは「どの視聴者がどれくらい来てくれたか」が見える。HOME 画面に常駐し、ログイン時にはオーバーレイで来場演出が走る設計。",
+      designIntent:
+        "「来てくれた事実」を可視化することで、配信者と視聴者の双方に小さな達成感を作る。常連の固定化と、配信者から個別の視聴者を覚える接点になる。",
+      livePath: "/",
+      screenshotPath: "/works/kotaruru0603/fan-site/stamp-card.png",
+      requestedBy: "ruru",
     },
     {
       slug: "member",

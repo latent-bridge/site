@@ -115,7 +115,7 @@ export default function FanSiteShowcase() {
 
                   {/* Text column */}
                   <div className="md:order-2">
-                    <div className="flex items-baseline gap-3">
+                    <div className="flex flex-wrap items-baseline gap-3">
                       <span className="text-xs text-accent font-bold">
                         {String(i + 1).padStart(2, "0")}
                       </span>
@@ -123,6 +123,11 @@ export default function FanSiteShowcase() {
                       {isUnimplemented && (
                         <span className="rounded-full bg-warm-bg px-2 py-0.5 text-[10px] text-warm font-bold">
                           予定
+                        </span>
+                      )}
+                      {feat.requestedBy && (
+                        <span className="rounded-full bg-rose-bg px-2 py-0.5 text-[10px] text-rose font-bold">
+                          {feat.requestedBy}さんの要望
                         </span>
                       )}
                     </div>
