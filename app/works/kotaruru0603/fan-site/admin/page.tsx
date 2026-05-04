@@ -1,5 +1,55 @@
 import { kotaruru0603Case } from "../../../../../data/works/kotaruru0603";
+import { asset } from "../../../../../lib/asset";
 import { SitePageShell } from "../../../../../components/works/SitePageShell";
+
+const FEATURES: {
+  slug: string;
+  title: string;
+  summary: string;
+  description: string;
+  screenshotPath: string;
+}[] = [
+  {
+    slug: "live",
+    title: "ライブ配信",
+    summary: "YouTube の配信をサイトの「LIVE NOW」へ即時切替",
+    description:
+      "ボタンひとつで配信中状態に切替、動画 ID は YouTube Data API から自動取得。OFFLINE 復帰や見守り (途中切れ検知) もこの画面で完結します。",
+    screenshotPath: "/works/kotaruru0603/admin/live.png",
+  },
+  {
+    slug: "schedule",
+    title: "スケジュール",
+    summary: "今日から 14 日間の配信予定を週ビューで編集",
+    description:
+      "タイトル・時刻・ノートに加え、カテゴリタグ (ゲーム / おしゃべり / おはなし / コラボ / おやすみ) と自由タグ、アイコン選択まで 1 行で入力。視聴者向け SCHEDULE ページに即反映されます。",
+    screenshotPath: "/works/kotaruru0603/admin/schedule.png",
+  },
+  {
+    slug: "archive",
+    title: "アーカイブ",
+    summary: "YouTube から取得した動画にカテゴリ・タグを後付け",
+    description:
+      "ピン留め・非表示・カテゴリ/タグの編集 (タイトル / サムネは YouTube 側で管理)。1 件ごとに「ぽんこつだいぶ」「ぽんこつさむらい」「ゆるげーむ」などの本人語彙ファセットを当てて、視聴者向け ARCHIVE の棚を整えます。",
+    screenshotPath: "/works/kotaruru0603/admin/archive.png",
+  },
+  {
+    slug: "chat",
+    title: "チャット",
+    summary: "ファンサイト内チャットのモデレーション",
+    description:
+      "投稿一覧から削除・非表示・元に戻す。配信者本人 (ruru) と運営 (LatentBridge) の発言は色分け表示で区別され、誰がいつ何を発言したかが一覧で追えます。",
+    screenshotPath: "/works/kotaruru0603/admin/chat.png",
+  },
+  {
+    slug: "stamps",
+    title: "スタンプ",
+    summary: "ファン参加状況・連続獲得・人気度の分析",
+    description:
+      "参加者数・今日アクティブ・累計スタンプ・完成カードのサマリ、日別の参加者推移グラフ、上位ファン (累計 / 完成 / 連続 / 最長 / 最終来訪) のランキング、完成カード分布を一画面で把握。配信者と運営が「誰が来てくれているか」を共通言語で見られる場所です。",
+    screenshotPath: "/works/kotaruru0603/admin/stamps.png",
+  },
+];
 
 export default function AdminPage() {
   const c = kotaruru0603Case;
@@ -18,42 +68,47 @@ export default function AdminPage() {
       liveUrl={link.url}
       liveLabel="管理画面を開く"
       authNote={link.authNote}
-      heroPath={link.screenshotPath}
     >
       <section className="mt-16">
         <h2 className="text-xs tracking-wide text-muted mb-1">Capabilities</h2>
         <p className="text-base font-bold">管理画面でできること</p>
+        <p className="mt-3 text-xs text-muted leading-relaxed">
+          5 つのタブを行き来しながら、ファンサイトの中身を配信者自身が更新できます。
+        </p>
 
-        <ol className="mt-6 space-y-4">
-          {[
-            {
-              title: "スケジュール編集",
-              body: "視聴者向け SCHEDULE ページに反映される配信予定をフォームから入力。週/月ビューに自動で展開されます。",
-            },
-            {
-              title: "アーカイブのキュレーション",
-              body: "YouTube Data API で自動収集された動画に、カテゴリ・タグ・コラボ情報・配色を後付け。「ポンコツだいぶ」など本人語彙でファセットを切れます。",
-            },
-            {
-              title: "チャット運営",
-              body: "ファン同士の常設チャットのモデレーション、ピン留め、ルール変更。Discord 連携時は両側から見えるよう同期する想定。",
-            },
-            {
-              title: "プロフィール / お知らせ更新",
-              body: "HOME のプロフィール文・スタッツ・カウントダウンの素材を編集。新コラボや新ゲームに合わせて即時反映できます。",
-            },
-          ].map((item, i) => (
-            <li
-              key={i}
-              className="rounded-2xl border border-border bg-surface p-5"
-            >
-              <div className="flex items-baseline gap-3">
-                <span className="text-xs text-accent font-bold">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="text-sm font-bold">{item.title}</h3>
+        <ol className="mt-10 space-y-12">
+          {FEATURES.map((f, i) => (
+            <li key={f.slug}>
+              <div className="grid gap-6 md:grid-cols-[1.1fr,1fr] md:items-start">
+                <div className="md:order-1">
+                  <a
+                    href={`${link.url.replace(/\/$/, "")}/${f.slug === "live" ? "" : f.slug}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block overflow-hidden rounded-2xl border border-border shadow-sm hover:shadow-md transition-shadow"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={asset(f.screenshotPath)}
+                      alt={`${f.title} のスクリーンショット`}
+                      className="w-full h-auto block"
+                    />
+                  </a>
+                </div>
+
+                <div className="md:order-2">
+                  <div className="flex flex-wrap items-baseline gap-3">
+                    <span className="text-xs text-accent font-bold">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="text-lg font-bold">{f.title}</h3>
+                  </div>
+                  <p className="mt-3 text-sm font-bold leading-relaxed text-foreground/80">
+                    {f.summary}
+                  </p>
+                  <p className="mt-3 text-sm leading-loose">{f.description}</p>
+                </div>
               </div>
-              <p className="mt-3 text-sm leading-loose">{item.body}</p>
             </li>
           ))}
         </ol>
@@ -67,7 +122,7 @@ export default function AdminPage() {
             視聴者が誤って管理画面に辿り着かない設計と、配信者が日常的に触る場所として迷わない設計の両立が目的です。
           </p>
           <p>
-            認証は admin URL に到達した時点でログイン要求。視聴者には admin URL を共有しないため、外部からは存在を意識しないまま動作します。
+            認証は admin URL に到達した時点でログイン要求 (Cookie ベースのセッション)。視聴者には admin URL を共有しないため、外部からは存在を意識しないまま動作します。
           </p>
         </div>
       </section>
