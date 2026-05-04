@@ -13,7 +13,13 @@ export const clips: Clip[] = [
       videoId: "Zn9s4yFBETU",
       title: "[Helldivers2]ポンコツダイバー[ヘルダイバー2]#13 参加大歓迎!！",
       totalDurationSec: 15001,
-      range: { start: "1:13:00", end: "1:14:30" },
+      segments: [
+        {
+          start: "1:13:00",
+          end: "1:14:30",
+          label: "コメント欄のたけのこに気を取られて全員乙る場面",
+        },
+      ],
       cutDurationSec: 76,
     },
     metrics: {
@@ -69,6 +75,13 @@ export const clips: Clip[] = [
       videoId: "lrwaKy1efeU",
       title: "planetoflana#2 タマキと共に",
       totalDurationSec: 8282,
+      segments: [
+        {
+          start: "0:00",
+          end: "0:00",
+          label: "敵の攻撃でも淡々と進める場面 (範囲は仮置き)",
+        },
+      ],
       cutDurationSec: 52,
     },
     metrics: {
@@ -119,6 +132,18 @@ export const clips: Clip[] = [
       videoId: "g3ZBCnWcnzk",
       title: "[Helldivers2]ポンコツダイバー[ヘルダイバー2] #19 参加大歓迎！！",
       totalDurationSec: 7137,
+      segments: [
+        {
+          start: "0:00",
+          end: "0:00",
+          label: "うんこ我慢中、catさんのツッコミ (範囲は仮置き)",
+        },
+        {
+          start: "0:00",
+          end: "0:00",
+          label: "帰還後に怒られる流れ (範囲は仮置き)",
+        },
+      ],
       cutDurationSec: 126,
     },
     metrics: {
@@ -169,6 +194,13 @@ export const clips: Clip[] = [
       videoId: "g3ZBCnWcnzk",
       title: "[Helldivers2]ポンコツダイバー[ヘルダイバー2] #19 参加大歓迎！！",
       totalDurationSec: 7137,
+      segments: [
+        {
+          start: "0:00",
+          end: "0:00",
+          label: "ヘルダイブ前の雑談「もっと叱ってください！」(範囲は仮置き)",
+        },
+      ],
       cutDurationSec: 43,
     },
     metrics: {
