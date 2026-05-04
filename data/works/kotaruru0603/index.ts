@@ -1,6 +1,7 @@
 import type { CaseSummary } from "../types";
 import { clips } from "./clips";
 import { fanSite } from "./fan-site";
+import { siteGroups } from "./sites";
 
 export const kotaruru0603Case: CaseSummary = {
   slug: "kotaruru0603",
@@ -13,4 +14,5 @@ export const kotaruru0603Case: CaseSummary = {
     "FPS / アクションゲームを中心に配信する女性ゲーム配信者。落ち着いた話し方とテンポの良い進行が強み。切り抜き制作の継続協力を起点に、ファンサイト構築・案件動画の協力関係に発展している。",
   clips,
   fanSite,
+  siteGroups,
 };

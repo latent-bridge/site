@@ -26,7 +26,7 @@ export default function KotaruRu0603Case() {
           </div>
           <div className="rounded-xl bg-accent-bg/40 p-3">
             <dt className="text-muted">納品物</dt>
-            <dd className="mt-1 font-bold">2 領域</dd>
+            <dd className="mt-1 font-bold">3 領域</dd>
           </div>
         </dl>
       </header>
@@ -77,6 +77,29 @@ export default function KotaruRu0603Case() {
             </p>
             <p className="mt-3 text-xs text-accent group-hover:underline">
               機能を見る →
+            </p>
+          </Link>
+
+          {/* 公開物リンク */}
+          <Link
+            href={`/works/${c.slug}/sites`}
+            className="group block rounded-3xl border border-border bg-surface p-6 hover:border-accent hover:bg-accent-bg/20 transition-colors sm:col-span-2"
+          >
+            <div className="flex items-baseline justify-between">
+              <p className="text-2xl">🔗</p>
+              <span className="text-[11px] text-muted">
+                {c.siteGroups.reduce((acc, g) => acc + g.links.length, 0)} 件
+              </span>
+            </div>
+            <h3 className="mt-4 text-base font-bold">公開物リンク</h3>
+            <p className="mt-2 text-xs text-muted leading-relaxed">
+              ファンサイト・管理画面・素材 (アイコン集 / 動物部屋) など、このケースで公開・運用している全ての成果物の入口。
+            </p>
+            <p className="mt-4 text-[11px] text-muted">
+              {c.siteGroups.map((g) => g.title).join(" / ")}
+            </p>
+            <p className="mt-3 text-xs text-accent group-hover:underline">
+              一覧を見る →
             </p>
           </Link>
         </div>

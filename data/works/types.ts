@@ -68,6 +68,22 @@ export type FanSiteInfo = {
   features: FanSiteFeature[];
 };
 
+export type SiteLink = {
+  slug: string;
+  title: string;
+  description: string;
+  url: string;
+  screenshotPath?: string;
+  authNote?: string;
+};
+
+export type SiteGroup = {
+  slug: string;
+  title: string;
+  description?: string;
+  links: SiteLink[];
+};
+
 export type CaseSummary = {
   slug: string;
   streamerName: string;
@@ -78,4 +94,5 @@ export type CaseSummary = {
   description: string;
   clips: Clip[];
   fanSite: FanSiteInfo;
+  siteGroups: SiteGroup[];
 };
