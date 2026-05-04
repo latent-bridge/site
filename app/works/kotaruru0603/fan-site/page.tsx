@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { kotaruru0603Case } from "../../../../data/works/kotaruru0603";
+import { asset } from "../../../../lib/asset";
 
 export default function FanSiteShowcase() {
   const c = kotaruru0603Case;
@@ -93,7 +94,7 @@ export default function FanSiteShowcase() {
                       >
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
-                          src={feat.screenshotPath}
+                          src={asset(feat.screenshotPath)}
                           alt={`${feat.title} のスクリーンショット`}
                           className="w-full h-auto block"
                         />
