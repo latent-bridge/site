@@ -108,31 +108,35 @@ export default async function ClipDetail({
       </section>
 
       {/* Telops */}
-      <section className="mt-16">
-        <h2 className="text-base font-bold">テロップ設計</h2>
-        <p className="mt-2 text-xs text-muted">
-          場面ごとの意図と、それに対するruruさん・視聴者の反応
-        </p>
-        <div className="mt-5">
-          <TelopList telops={clip.telops} />
-        </div>
-      </section>
+      {clip.telops.length > 0 && (
+        <section className="mt-16">
+          <h2 className="text-base font-bold">テロップ設計</h2>
+          <p className="mt-2 text-xs text-muted">
+            場面ごとの意図と、それに対するruruさん・視聴者の反応
+          </p>
+          <div className="mt-5">
+            <TelopList telops={clip.telops} />
+          </div>
+        </section>
+      )}
 
       {/* Production notes */}
-      <section className="mt-16">
-        <h2 className="text-base font-bold">制作のポイント</h2>
-        <ul className="mt-5 space-y-3">
-          {clip.productionNotes.map((n, i) => (
-            <li
-              key={i}
-              className="flex gap-3 rounded-2xl border border-border bg-surface p-4 text-sm leading-relaxed"
-            >
-              <span className="flex-shrink-0 text-accent">◎</span>
-              <span>{n}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
+      {clip.productionNotes.length > 0 && (
+        <section className="mt-16">
+          <h2 className="text-base font-bold">制作のポイント</h2>
+          <ul className="mt-5 space-y-3">
+            {clip.productionNotes.map((n, i) => (
+              <li
+                key={i}
+                className="flex gap-3 rounded-2xl border border-border bg-surface p-4 text-sm leading-relaxed"
+              >
+                <span className="flex-shrink-0 text-accent">◎</span>
+                <span>{n}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {/* Outcome */}
       <section className="mt-16">
@@ -144,19 +148,21 @@ export default async function ClipDetail({
       </section>
 
       {/* Learnings */}
-      <section className="mt-16">
-        <h2 className="text-base font-bold">この回からの学び</h2>
-        <ul className="mt-5 space-y-3">
-          {clip.learnings.map((l, i) => (
-            <li
-              key={i}
-              className="rounded-2xl border-l-4 border-accent bg-surface p-4 text-sm leading-loose"
-            >
-              {l}
-            </li>
-          ))}
-        </ul>
-      </section>
+      {clip.learnings.length > 0 && (
+        <section className="mt-16">
+          <h2 className="text-base font-bold">この回からの学び</h2>
+          <ul className="mt-5 space-y-3">
+            {clip.learnings.map((l, i) => (
+              <li
+                key={i}
+                className="rounded-2xl border-l-4 border-accent bg-surface p-4 text-sm leading-loose"
+              >
+                {l}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {/* Prev/Next */}
       <section className="mt-16">
