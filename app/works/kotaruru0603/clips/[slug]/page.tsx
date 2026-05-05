@@ -112,7 +112,9 @@ export default async function ClipDetail({
         <section className="mt-16">
           <h2 className="text-base font-bold">テロップ設計</h2>
           <p className="mt-2 text-xs text-muted">
-            場面ごとの意図と、それに対するruruさん・視聴者の反応
+            {clip.telopCount && clip.telopCount > clip.telops.length
+              ? `代表 ${clip.telops.length} 件 (全 ${clip.telopCount} 件のテロップで構成)`
+              : "場面ごとの意図と、それに対する反応"}
           </p>
           <div className="mt-5">
             <TelopList telops={clip.telops} />

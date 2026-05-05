@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import type { ClipSource, SourceSegment } from "../../data/works/types";
+import type { ClipSource, SourceRange } from "../../data/works/types";
 
 type Props = {
   source: ClipSource;
@@ -22,26 +22,24 @@ function formatDuration(totalSec?: number) {
   return h > 0 ? `${h}時間${m}分` : `${m}分`;
 }
 
-function segmentDurationLabel(seg: SourceSegment): string {
-  const startSec = parseTimeString(seg.start);
-  const endSec = parseTimeString(seg.end);
-  const diff = endSec - startSec;
-  if (diff <= 0) return "—";
-  const m = Math.floor(diff / 60);
-  const s = diff % 60;
+function rangeDurationLabel(r: SourceRange): string {
+  const d = parseTimeString(r.end) - parseTimeString(r.start);
+  if (d <= 0) return "—";
+  const m = Math.floor(d / 60);
+  const s = d % 60;
   return m > 0 ? `${m}分${s.toString().padStart(2, "0")}秒` : `${s}秒`;
 }
 
-function youtubeUrlAt(videoId: string, seg: SourceSegment): string {
-  const start = Math.floor(parseTimeString(seg.start));
+function youtubeUrlAt(videoId: string, r: SourceRange): string {
+  const start = Math.floor(parseTimeString(r.start));
   return `https://www.youtube.com/watch?v=${videoId}&t=${start}s`;
 }
 
-function embedSrc(videoId: string, seg?: SourceSegment): string {
+function embedSrc(videoId: string, r?: SourceRange): string {
   const base = `https://www.youtube.com/embed/${videoId}?rel=0`;
-  if (!seg) return base;
-  const start = Math.floor(parseTimeString(seg.start));
-  const end = Math.ceil(parseTimeString(seg.end));
+  if (!r) return base;
+  const start = Math.floor(parseTimeString(r.start));
+  const end = Math.ceil(parseTimeString(r.end));
   const params: string[] = [];
   if (start > 0) params.push(`start=${start}`);
   if (end > 0 && end > start) params.push(`end=${end}`);
@@ -49,15 +47,19 @@ function embedSrc(videoId: string, seg?: SourceSegment): string {
 }
 
 export function SourceCard({ source }: Props) {
-  const segments = source.segments ?? [];
+  const ranges = source.ranges ?? [];
   const [activeIdx, setActiveIdx] = useState(0);
-  const active = segments[activeIdx];
+  const active = ranges[activeIdx];
 
   const watchUrl = `https://www.youtube.com/watch?v=${source.videoId}`;
-  const totalSegSec = segments.reduce((acc, s) => {
-    const d = parseTimeString(s.end) - parseTimeString(s.start);
+  const totalRangeSec = ranges.reduce((acc, r) => {
+    const d = parseTimeString(r.end) - parseTimeString(r.start);
     return acc + (d > 0 ? d : 0);
   }, 0);
+  const totalSegments = ranges.reduce(
+    (acc, r) => acc + (r.segmentCount ?? 1),
+    0,
+  );
 
   return (
     <div className="rounded-2xl border border-border bg-surface p-5">
@@ -74,7 +76,7 @@ export function SourceCard({ source }: Props) {
           </a>
         </div>
         <span className="rounded-full bg-accent-bg px-3 py-1 text-[11px] text-accent flex-shrink-0">
-          {segments.length} セグメント
+          {ranges.length} 範囲 / {totalSegments} カット
         </span>
       </div>
 
@@ -86,10 +88,10 @@ export function SourceCard({ source }: Props) {
           </dd>
         </div>
         <div>
-          <dt className="text-muted">抽出合計</dt>
+          <dt className="text-muted">抽出範囲計</dt>
           <dd className="mt-1 font-bold">
-            {totalSegSec > 0
-              ? `${Math.floor(totalSegSec / 60)}分${(totalSegSec % 60)
+            {totalRangeSec > 0
+              ? `${Math.floor(totalRangeSec / 60)}分${(totalRangeSec % 60)
                   .toString()
                   .padStart(2, "0")}秒`
               : "—"}
@@ -103,7 +105,7 @@ export function SourceCard({ source }: Props) {
         </div>
       </dl>
 
-      {segments.length > 0 && (
+      {ranges.length > 0 && (
         <>
           <div
             className="mt-5 relative w-full overflow-hidden rounded-xl bg-black"
@@ -112,7 +114,7 @@ export function SourceCard({ source }: Props) {
             <iframe
               key={activeIdx}
               src={embedSrc(source.videoId, active)}
-              title={`${source.title} - segment ${activeIdx + 1}`}
+              title={`${source.title} - range ${activeIdx + 1}`}
               className="absolute inset-0 h-full w-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
@@ -120,33 +122,37 @@ export function SourceCard({ source }: Props) {
           </div>
 
           <ol className="mt-4 space-y-2">
-            {segments.map((seg, i) => {
+            {ranges.map((r, i) => {
               const isActive = i === activeIdx;
               return (
                 <li key={i}>
                   <button
                     type="button"
                     onClick={() => setActiveIdx(i)}
-                    className={`w-full text-left rounded-xl border p-3 transition-colors ${
+                    className={`w-full text-left rounded-xl border p-4 transition-colors ${
                       isActive
                         ? "border-accent bg-accent-bg/40"
                         : "border-border bg-background hover:border-accent/50"
                     }`}
                   >
                     <div className="flex items-baseline justify-between gap-3">
-                      <div className="flex items-baseline gap-2">
+                      <div className="flex items-baseline gap-2 flex-wrap">
                         <span className="text-[11px] text-muted font-bold">
                           {String(i + 1).padStart(2, "0")}
                         </span>
                         <span className="text-xs font-bold tabular-nums">
-                          {seg.start} → {seg.end}
+                          {r.start} → {r.end}
                         </span>
                         <span className="text-[11px] text-muted">
-                          ({segmentDurationLabel(seg)})
+                          ({rangeDurationLabel(r)}
+                          {r.segmentCount && r.segmentCount > 1
+                            ? ` / ${r.segmentCount} カット`
+                            : ""}
+                          )
                         </span>
                       </div>
                       <a
-                        href={youtubeUrlAt(source.videoId, seg)}
+                        href={youtubeUrlAt(source.videoId, r)}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
@@ -155,9 +161,12 @@ export function SourceCard({ source }: Props) {
                         YouTube ↗
                       </a>
                     </div>
-                    {seg.label && (
+                    <p className="mt-1.5 text-sm font-bold leading-snug">
+                      {r.label}
+                    </p>
+                    {r.description && (
                       <p className="mt-1.5 text-xs text-muted leading-relaxed">
-                        {seg.label}
+                        {r.description}
                       </p>
                     )}
                   </button>

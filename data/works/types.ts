@@ -4,17 +4,19 @@ export type ClipMetrics = {
   asOf?: string;
 };
 
-export type SourceSegment = {
+export type SourceRange = {
   start: string;
   end: string;
-  label?: string;
+  label: string;
+  description?: string;
+  segmentCount?: number;
 };
 
 export type ClipSource = {
   videoId: string;
   title: string;
   totalDurationSec?: number;
-  segments?: SourceSegment[];
+  ranges?: SourceRange[];
   cutDurationSec?: number;
 };
 
@@ -40,6 +42,7 @@ export type Clip = {
     reasoning: string;
   };
   telops: ClipTelop[];
+  telopCount?: number;
   productionNotes: string[];
   outcome: string;
   learnings: string[];
