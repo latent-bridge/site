@@ -73,11 +73,8 @@ export const clips: Clip[] = [
       title: "planetoflana#2 タマキと共に",
       totalDurationSec: 8282,
       segments: [
-        {
-          start: "0:00",
-          end: "0:00",
-          label: "敵の攻撃でも淡々と進める場面 (範囲は仮置き)",
-        },
+        { start: "1:22:59", end: "1:23:34" },
+        { start: "1:23:38", end: "1:23:54" },
       ],
       cutDurationSec: 52,
     },
@@ -123,20 +120,18 @@ export const clips: Clip[] = [
     postedAt: "2026-04-13",
     shortVideoId: "v_7IWVdy-JU",
     source: {
-      videoId: "g3ZBCnWcnzk",
-      title: "[Helldivers2]ポンコツダイバー[ヘルダイバー2] #19 参加大歓迎!！",
-      totalDurationSec: 7137,
+      videoId: "JkI2Bq6ZdLo",
+      title: "[Helldivers2]ポンコツダイバー[ヘルダイバー2]#17 参加大歓迎!！",
+      totalDurationSec: 16141,
       segments: [
-        {
-          start: "0:00",
-          end: "0:00",
-          label: "うんこ我慢中、catさんのツッコミ (範囲は仮置き)",
-        },
-        {
-          start: "0:00",
-          end: "0:00",
-          label: "帰還後に怒られる流れ (範囲は仮置き)",
-        },
+        { start: "2:09:34", end: "2:10:09", label: "うんこ我慢の入り" },
+        { start: "2:10:11", end: "2:10:13" },
+        { start: "2:10:16", end: "2:10:23" },
+        { start: "2:10:35", end: "2:10:46" },
+        { start: "2:11:16", end: "2:11:34" },
+        { start: "2:11:37", end: "2:11:55" },
+        { start: "2:12:02", end: "2:12:19", label: "catさんのツッコミ" },
+        { start: "2:29:05", end: "2:29:25", label: "帰還後に怒られる流れ" },
       ],
       cutDurationSec: 126,
     },
@@ -182,15 +177,15 @@ export const clips: Clip[] = [
     postedAt: "2026-04-17",
     shortVideoId: "HzPTx_KWNRI",
     source: {
-      videoId: "g3ZBCnWcnzk",
-      title: "[Helldivers2]ポンコツダイバー[ヘルダイバー2] #19 参加大歓迎!！",
-      totalDurationSec: 7137,
+      videoId: "JkI2Bq6ZdLo",
+      title: "[Helldivers2]ポンコツダイバー[ヘルダイバー2]#17 参加大歓迎!！",
+      totalDurationSec: 16141,
       segments: [
-        {
-          start: "0:00",
-          end: "0:00",
-          label: "トイレ後に叱られるシーン (範囲は仮置き)",
-        },
+        { start: "2:37:45", end: "2:38:02", label: "トイレ後の叱り場面" },
+        { start: "2:38:05", end: "2:38:07" },
+        { start: "2:38:12", end: "2:38:13" },
+        { start: "2:38:14", end: "2:38:20" },
+        { start: "2:38:27", end: "2:38:42", label: "「もっと叱ってください」" },
       ],
       cutDurationSec: 43,
     },
@@ -236,15 +231,19 @@ export const clips: Clip[] = [
     postedAt: "2026-05-02",
     shortVideoId: "qv53jUS37jI",
     source: {
-      videoId: "fhwwUmiVT50",
-      title: "[Helldivers2]ポンコツダイバー[るるゴリ初コラボ]#23 参加大歓迎!！ (推定)",
-      totalDurationSec: 19147,
+      videoId: "ohP0vVw-aPQ",
+      title: "[Helldivers2]ポンコツダイバー[ヘルダイバー2] #19 参加大歓迎!！",
+      totalDurationSec: 12604,
       segments: [
-        {
-          start: "0:00",
-          end: "0:00",
-          label: "元配信は推定 (#23 るるゴリ初コラボ)、範囲は仮置き",
-        },
+        { start: "1:53:05", end: "1:53:20", label: "戦犯探しの導入" },
+        { start: "1:53:22", end: "1:53:23" },
+        { start: "1:53:23", end: "1:53:24" },
+        { start: "1:53:24", end: "1:53:38", label: "ツナさん呼び (3 回)" },
+        { start: "1:53:38", end: "1:53:41" },
+        { start: "1:53:41", end: "1:53:45" },
+        { start: "1:53:58", end: "1:54:10", label: "「証拠はちゃんと撮っておいたから」" },
+        { start: "1:54:13", end: "1:54:19" },
+        { start: "1:54:21", end: "1:54:25" },
       ],
       cutDurationSec: 61,
     },
@@ -256,10 +255,24 @@ export const clips: Clip[] = [
     selection: {
       who: "us",
       reasoning:
-        "ファンサイトの archive に追加された短編。制作ログ (03_action.md) は 2026-04-22 で更新が止まっており、選定根拠の詳細は記録待ち。",
+        "Helldivers2 #19 配信から、コラボメンバーの「ツナさん」が戦犯役となった場面を抽出。「証拠はちゃんと撮っておいたから」のセリフを軸に、戦犯探し → ツナさん呼び → 証拠提示 の流れを 9 セグメントで再構成した。",
     },
-    telops: [],
-    productionNotes: [],
+    telops: [
+      {
+        caption: "「証拠はちゃんと撮っておいたから」",
+        intent:
+          "クリップの軸となるセリフ。コラボ相手 (ツナさん) のミスを撮影で記録した、という展開のキー。",
+      },
+      {
+        caption: "「ツナーーーー！！」 (3 回畳みかけ)",
+        intent:
+          "コラボ相手を呼ぶ叫びを 3 段階で強調。テロップ側でも文字数を増やしながら声量増加を視覚化。",
+      },
+    ],
+    productionNotes: [
+      "9 セグメント / 20 テロップで構成。短いセグメントを高密度で繋ぎ、61 秒のショート尺に詰め込む方針を踏襲。",
+      "コラボ配信からの抽出は本シリーズ初。コラボ相手 (ツナさん) 視点の叫び声を中心に据え、誰のクリップでも成立するキャラクター対話劇として編集。",
+    ],
     outcome:
       "投稿後 3 日で 2,400 再生を超えて推移 (2026-05-05 時点 2,413)。シリーズ 5 本目で、1〜4本目に並ぶ水準で伸びている。",
     learnings: [],
