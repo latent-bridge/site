@@ -134,27 +134,13 @@ export default async function ClipDetail({
         </ul>
       </section>
 
-      {/* Responses */}
+      {/* Outcome */}
       <section className="mt-16">
-        <h2 className="text-base font-bold">反応・実績</h2>
-        <div className="mt-5 grid gap-4 sm:grid-cols-2">
-          {clip.responses.ruru && (
-            <div className="rounded-2xl bg-rose-bg/60 p-5">
-              <p className="text-xs text-rose font-bold">本人より</p>
-              <p className="mt-3 text-sm leading-loose">
-                {clip.responses.ruru}
-              </p>
-            </div>
-          )}
-          {clip.responses.viewer && (
-            <div className="rounded-2xl bg-sage-bg/60 p-5">
-              <p className="text-xs text-sage font-bold">視聴者・数字</p>
-              <p className="mt-3 text-sm leading-loose">
-                {clip.responses.viewer}
-              </p>
-            </div>
-          )}
-        </div>
+        <h2 className="text-base font-bold">結果</h2>
+        <p className="mt-2 text-xs text-muted">投稿後の数字と、次の制作への接続</p>
+        <p className="mt-5 rounded-2xl border border-border bg-surface p-5 text-sm leading-loose">
+          {clip.outcome}
+        </p>
       </section>
 
       {/* Learnings */}

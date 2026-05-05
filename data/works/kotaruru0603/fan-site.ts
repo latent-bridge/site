@@ -4,7 +4,7 @@ export const fanSite: FanSiteInfo = {
   liveUrl: "https://kotaruru0603.latent-bridge.com/",
   designName: "MOCHI HOUSE / もちもち",
   designStory:
-    "最初の提案は MIDNIGHT OPS (ダーク × ネオンミント) でしたが、ruruさんに「あくまで一案」と伝えた上で別方向性のデザインギャラリーを提示。ruruさん自身が「【もちもち】が凄く好み」と選定し、雰囲気はそのまま、中の言葉 (もちもち→ぽんこつ/ruru) は本人提案で差し込み。デザインも中身も配信者と一緒に育てる構造にしています。",
+    "最初に MIDNIGHT OPS (ダーク × ネオンミント) を一案として提示。並行して別方向性のデザインギャラリーも揃え、配信者の選定で MOCHI HOUSE (もちもち) を採用した。配色とイラストはそのまま、テキスト (もちもち → ぽんこつ / ruru) は配信者の語彙で差し替え、デザインと中身の両方を共創する構造にしている。",
   features: [
     {
       slug: "home",

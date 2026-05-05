@@ -26,11 +26,6 @@ export type ClipTelop = {
   imagePath?: string;
 };
 
-export type ClipResponses = {
-  ruru?: string;
-  viewer?: string;
-};
-
 export type Clip = {
   slug: string;
   sequenceNo: number;
@@ -46,7 +41,7 @@ export type Clip = {
   };
   telops: ClipTelop[];
   productionNotes: string[];
-  responses: ClipResponses;
+  outcome: string;
   learnings: string[];
 };
 
