@@ -23,9 +23,9 @@ export const clips: Clip[] = [
       cutDurationSec: 76,
     },
     metrics: {
-      views: 1646,
+      views: 1653,
       likes: 17,
-      asOf: "2026-04-27",
+      asOf: "2026-05-05",
     },
     selection: {
       who: "ruru",
@@ -82,9 +82,9 @@ export const clips: Clip[] = [
       cutDurationSec: 52,
     },
     metrics: {
-      views: 2238,
+      views: 2254,
       likes: 16,
-      asOf: "2026-04-27",
+      asOf: "2026-05-05",
     },
     selection: {
       who: "us",
@@ -141,9 +141,9 @@ export const clips: Clip[] = [
       cutDurationSec: 126,
     },
     metrics: {
-      views: 236,
+      views: 271,
       likes: 11,
-      asOf: "2026-04-27",
+      asOf: "2026-05-05",
     },
     selection: {
       who: "ruru",
@@ -195,9 +195,9 @@ export const clips: Clip[] = [
       cutDurationSec: 43,
     },
     metrics: {
-      views: 2367,
+      views: 2404,
       likes: 10,
-      asOf: "2026-04-27",
+      asOf: "2026-05-05",
     },
     selection: {
       who: "us",
@@ -226,6 +226,54 @@ export const clips: Clip[] = [
     learnings: [
       "演出の質より「投稿時間 × 尺 × タイトルの引き」を整える方が、伸びへの寄与が大きい。",
       "配信者側からのリスク指摘 (罵倒系コメントの誘発リスク) を運用の安全弁として組み込んだ。",
+    ],
+  },
+  {
+    slug: "05-evidence",
+    sequenceNo: 5,
+    title: "証拠はちゃんと撮ったなり",
+    fullTitle: "証拠はちゃんと撮ったなり",
+    postedAt: "2026-05-02",
+    shortVideoId: "qv53jUS37jI",
+    source: {
+      videoId: "fhwwUmiVT50",
+      title: "[Helldivers2]ポンコツダイバー[るるゴリ初コラボ]#23 参加大歓迎!！",
+      totalDurationSec: 19147,
+      segments: [
+        {
+          start: "0:00",
+          end: "0:00",
+          label: "コラボ相手とのやりとりで証拠を撮る場面 (範囲は仮置き)",
+        },
+      ],
+      cutDurationSec: 61,
+    },
+    metrics: {
+      views: 2413,
+      likes: 14,
+      asOf: "2026-05-05",
+    },
+    selection: {
+      who: "us",
+      reasoning:
+        "るるゴリさんとの初コラボ配信から、コラボ相手のキャラクター性が伝わる場面を選定。1 配信の中でやりとりが完結する区間を切り出し、初見でも文脈が追える長さ (61 秒) に収めた。",
+    },
+    telops: [
+      {
+        caption: "「証拠はちゃんと撮ったなり」",
+        intent:
+          "配信者の語尾「なり」をタイトル・テロップで踏襲。コラボ配信の世界観を切り抜きにも持ち込む狙い。",
+      },
+    ],
+    productionNotes: [
+      "尺は 61 秒。シリーズの直近 4 本の平均 (74 秒) より短い設計を踏襲。",
+      "コラボ配信からの抽出は今回が初回。1 人配信時より文脈の引き継ぎ量が多いため、対話が完結する区間で切る方針を採った。",
+    ],
+    outcome:
+      "投稿後 3 日で 2,400 再生に到達し、4 本目に並ぶペースで伸長。コラボ配信からの切り抜きでも単独配信回と遜色ない数字が出ることを確認。",
+    learnings: [
+      "コラボ配信からの切り抜きは、文脈完結性を優先することで単独配信と同等の到達が見込める。",
+      "シリーズ通しで「短く・夜帯・引きのあるタイトル」の方針が継続して機能している。",
     ],
   },
 ];
