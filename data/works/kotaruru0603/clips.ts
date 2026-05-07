@@ -262,9 +262,9 @@ export const clips: Clip[] = [
     postedAt: "2026-05-02",
     shortVideoId: "qv53jUS37jI",
     source: {
-      videoId: "ohP0vVw-aPQ",
+      videoId: "g3ZBCnWcnzk",
       title: "[Helldivers2]ポンコツダイバー[ヘルダイバー2] #19 参加大歓迎!！",
-      totalDurationSec: 12604,
+      totalDurationSec: 7137,
       ranges: [
         {
           start: "1:53:05",
